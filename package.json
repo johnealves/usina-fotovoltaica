@@ -1,0 +1,23 @@
+{
+  "name": "usina-fotovoltqaica",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnealves/usina-fotovoltqaica.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnealves/usina-fotovoltqaica/issues"
+  },
+  "homepage": "https://github.com/johnealves/usina-fotovoltqaica#readme",
+  "dependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
