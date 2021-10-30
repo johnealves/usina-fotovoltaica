@@ -1,5 +1,7 @@
-const ClientRoute = require("./ClientRoutes")
+const clientRoutes = require("./ClientRoutes");
+const usinaRoutes = require("./UsinaRoutes");
 
 module.exports = {
-    ClientRoute,
+    clientRoutes,
+    usinaRoutes,
 }

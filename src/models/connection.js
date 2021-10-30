@@ -5,11 +5,11 @@ const OPTIONS = {
   useUnifiedTopology: true,
 };
 
-// const MONGO_DB_URL = 'mongodb://localhost:27017/StoreManager';
-// const DB_NAME = 'StoreManager';
+const MONGO_DB_URL = 'mongodb://localhost:27017/sharenergy';
+const DB_NAME = 'sharenergy';
 
-const MONGO_DB_URL = 'mongodb://mongodb:27017/usinaSharenergy';
-const DB_NAME = 'usinaSharenergy';
+// const MONGO_DB_URL = 'mongodb://mongodb:27017/sharenergy';
+// const DB_NAME = 'sharenergy';
 
 let db = null;
 
@@ -17,7 +17,7 @@ const connection = () => {
   return db
     ? Promise.resolve(db)
     : MongoClient.connect(MONGO_DB_URL, OPTIONS).then((conn) => {
-      db = conn.db('usinaSharenergy');
+      db = conn.db(DB_NAME);
       return db;
     });
 };

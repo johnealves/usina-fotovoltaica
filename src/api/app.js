@@ -3,13 +3,16 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 require('dotenv').config();
 
-const app = express()
+const app = express();
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 app.use(cors())
 
-const routes = require("../Routes")
+const routes = require("../Routes");
 
-app.use("/", routes.ClientRoute)
+app.get("/", (req, res, next) => res.json({message: "Aplicação OK"}));
+
+app.use("/", routes.clientRoutes);
+app.use("/", routes.usinaRoutes);
 
 module.exports = app;
