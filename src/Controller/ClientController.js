@@ -11,6 +11,17 @@ const getAllClients = async(req, res, next) => {
   }
 }
 
+const getClientById = async(req, res, next) => {
+  try {
+    const { id } = req.params
+    const client = await clientModel.getClientByIdModel(id)
+  
+    res.status(200).json(client)
+  } catch (error) {
+    next(error)
+  }
+}
+
 const newClientController = async(req, res, next) => {
   try {
     const { numeroCliente, nomeCliente, usinas } = req.body
@@ -38,7 +49,7 @@ const updateClientByIdController = async(req, res, next) => {
 
 const deleteClientByIdController = async(req, res, next) => {
   try {
-    const { id } = req.body
+    const { id } = req.params
     const deletedClient = await clientService.deleteClientByIdService(id)
     
     res.status(200).json({
@@ -53,6 +64,7 @@ const deleteClientByIdController = async(req, res, next) => {
 
 module.exports = {
   getAllClients,
+  getClientById,
   newClientController,
   updateClientByIdController,
   deleteClientByIdController,

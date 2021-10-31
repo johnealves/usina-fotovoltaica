@@ -2,9 +2,16 @@ const connection = require("./connection")
 const { ObjectId } = require("mongodb")
 
 const getAllClients = async () => {
-    return await connection()
-      .then((db) => db.collection('clientes').find().toArray());
-  };
+  return await connection()
+    .then((db) => db.collection('clientes').find().toArray());
+};
+
+const getClientByIdModel = async (id) => {
+  if (!ObjectId.isValid(id)) return null;
+  return await connection()
+    .then((db) => db
+      .collection('clientes').findOne({'_id': new ObjectId(id)}));
+};
 
 const newClientModel = async ({numeroCliente, nomeCliente,usinas}) => {
   const result = await connection()
@@ -66,6 +73,7 @@ const deleteCollectionCliente = async () => {
 
 module.exports = {
   getAllClients,
+  getClientByIdModel,
   newClientModel,
   initDbClientes,
   deleteCollectionCliente,
