@@ -35,7 +35,8 @@ const newClientController = async(req, res, next) => {
 
 const updateClientByIdController = async(req, res, next) => {
   try {
-    const { id, numeroCliente, nomeCliente, usinas } = req.body
+    const { id } = req.params
+    const { numeroCliente, nomeCliente, usinas } = req.body
 
     const updated = await clientService.updateClientByIdService(
       { id, numeroCliente, nomeCliente, usinas }

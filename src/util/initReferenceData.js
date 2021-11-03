@@ -8,8 +8,11 @@ const initReferenceData = async () => {
   await initDbClientes(clients)
   await deleteCollectionUsina()
   await initDbUsina(usina)
+  console.log("DB resetado")
 }
 
-module.exports = {
-  initReferenceData
-}
+initReferenceData()
+
+// module.exports = {
+//   initReferenceData
+// }

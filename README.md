@@ -7,7 +7,7 @@ Para rodar este projeto clone o repositorio
 apos clonar o repositorio utilise o comando "npm install" para instalar as dependencias.
 
 Digite no terminal "npm start" para iniciar o projeto.
-obs: ao executar "npm start" o projeto ira imediatamente popular um banco de dados chamdo desafioSharenergy no mongodb, por isso certifique-se de que o mongodb esta ativo antes de iniciar este projeto.
+obs: Para popular o banco de dados é necessario utilizar co comando "npm run db:reset", isso ira gerar um banco de dados chamado sharenergy-johnealves com os dados dos arquivos dadosUsina.json e dadosUsuario.json. Caso os banco ja exista os dados serão resetados ao estado original dos arquivos de referencia,
 
 ##Endpoints:
 
@@ -27,10 +27,10 @@ Retorna os dados de todos os clientes cadastrados no banco de dados
 
 Adiciona um novo cliente ao banco de dados. Para adicionar um novo cliente é necessario adicionar no corpo da requisição(body) os seguintes campos: { nomeCliente, numeroCliente, usinas: [] }
 
-####Put ("/client")
+####Put ("/client/:id")
 
-Altera os dados de um cliente já cadastrado. os dados completos do cliente são enviados no corpo da requisição ja com os dados atualizados e o id do cliente
+Altera os dados de um cliente já cadastrado. os dados completos do cliente são enviados no corpo da requisição ja com os dados atualizados e o id no endereço da requisição
 
-####Delete ("/client")
+####Delete ("/client/:id")
 
-Delete um cliente do banco de dados a partir do "id" do cliente. O "id" deve ser enviado no corpo da requisição.
+Delete um cliente do banco de dados a partir do "id" do cliente.

@@ -5,8 +5,8 @@ const OPTIONS = {
   useUnifiedTopology: true,
 };
 
-const MONGO_DB_URL = 'mongodb://localhost:27017/sharenergy';
-const DB_NAME = 'sharenergy';
+const MONGO_DB_URL = 'mongodb://localhost:27017/sharenergy-johnealves';
+const DB_NAME = 'sharenergy-johnealves';
 
 // const MONGO_DB_URL = 'mongodb://mongodb:27017/sharenergy';
 // const DB_NAME = 'sharenergy';
