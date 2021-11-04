@@ -7,7 +7,7 @@ Para rodar este projeto clone o repositorio
 apos clonar o repositorio utilise o comando "npm install" para instalar as dependencias.
 
 Digite no terminal "npm start" para iniciar o projeto.
-obs: Para popular o banco de dados é necessario utilizar co comando "npm run db:reset", isso ira gerar um banco de dados chamado sharenergy-johnealves com os dados dos arquivos dadosUsina.json e dadosUsuario.json. Caso os banco ja exista os dados serão resetados ao estado original dos arquivos de referencia,
+obs: Para fins de teste aplicação sempre que o comando "npm start" é executado a aplicação inicia um database no mongodb chamado sharenergy-johnealves com os dados dos arquivos dadosUsina.json e dadosClientes.json. Caso os banco ja exista os dados serão resetados ao estado original dos arquivos de referencia.
 
 ##Endpoints:
 
@@ -34,3 +34,7 @@ Altera os dados de um cliente já cadastrado. os dados completos do cliente são
 ####Delete ("/client/:id")
 
 Delete um cliente do banco de dados a partir do "id" do cliente.
+
+####Login ("/login")
+
+Gera um tokem JWT e retorna o token junto com dados do usuario. Reque email e password no corpo da requisição.

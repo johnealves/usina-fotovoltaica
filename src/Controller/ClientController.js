@@ -1,8 +1,13 @@
 const clientModel = require("../models/clientModel");
 const clientService = require("../services/ClientService");
+const invalidData = require("../util/invalidData");
+
+const UNAUTHORIZED = 401;
 
 const getAllClients = async(req, res, next) => {
   try {
+    const { role } = req.user
+    if (role !== "admin") throw invalidData("User unauthorized", UNAUTHORIZED);
     const clients = await clientModel.getAllClients()
   
     res.status(200).json(clients)
@@ -24,8 +29,8 @@ const getClientById = async(req, res, next) => {
 
 const newClientController = async(req, res, next) => {
   try {
-    const { numeroCliente, nomeCliente, usinas } = req.body
-    const clients = await clientService.newClientService({numeroCliente, nomeCliente, usinas})
+    const {numeroCliente, nomeCliente,usinas, password, email, role} = req.body
+    const clients = await clientService.newClientService({numeroCliente, nomeCliente,usinas, password, email, role})
 
     res.status(201).json(clients)
   } catch (error) {
@@ -36,10 +41,10 @@ const newClientController = async(req, res, next) => {
 const updateClientByIdController = async(req, res, next) => {
   try {
     const { id } = req.params
-    const { numeroCliente, nomeCliente, usinas } = req.body
+    const { numeroCliente, nomeCliente, usinas, password, email } = req.body
 
     const updated = await clientService.updateClientByIdService(
-      { id, numeroCliente, nomeCliente, usinas }
+      { id, numeroCliente, nomeCliente, usinas, password, email }
     )
 
     res.status(200).json(updated);

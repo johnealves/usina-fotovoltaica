@@ -13,9 +13,10 @@ const getClientByIdModel = async (id) => {
       .collection('clientes').findOne({'_id': new ObjectId(id)}));
 };
 
-const newClientModel = async ({numeroCliente, nomeCliente,usinas}) => {
+const newClientModel = async ({numeroCliente, nomeCliente,usinas, password, email, role = "client"}) => {
   const result = await connection()
-    .then((db) => db.collection('clientes').insertOne({numeroCliente, nomeCliente, usinas}));
+    .then((db) => db
+      .collection('clientes').insertOne({numeroCliente, nomeCliente, usinas, password, email, role}));
   
   return {
     _id: result.insertedId,
@@ -24,7 +25,7 @@ const newClientModel = async ({numeroCliente, nomeCliente,usinas}) => {
   };
 };
 
-const updateClientByIdModel = async({ id, numeroCliente, nomeCliente, usinas }) => {
+const updateClientByIdModel = async({ id, numeroCliente, nomeCliente, usinas, password, email  }) => {
   if (!ObjectId.isValid(id)) {
     return null;
   }

@@ -9,10 +9,14 @@ app.use(bodyParser.json());
 app.use(cors())
 
 const routes = require("../Routes");
+const errorMiddleware = require("../middleware/errorMiddlewares")
 
 app.get("/", (req, res, next) => res.json({message: "Aplicação OK"}));
 
 app.use("/", routes.clientRoutes);
 app.use("/", routes.usinaRoutes);
+app.use("/", routes.loginRoute);
+
+app.use(errorMiddleware)
 
 module.exports = app;

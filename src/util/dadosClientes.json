@@ -1,5 +1,19 @@
 [
     {
+        "numeroCliente": 999,
+        "nomeCliente": "admin",
+        "password": "admin",
+        "role": "admin",
+        "email": "admin@email.com",
+        "usinas":
+        [
+            {
+                "usinaId": 1,
+                "percentualDeParticipacao": 30
+            }
+        ]
+    },
+    {
         "numeroCliente": 1,
         "nomeCliente": "Ana Silva",
         "usinas":

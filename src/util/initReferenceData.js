@@ -11,8 +11,6 @@ const initReferenceData = async () => {
   console.log("DB resetado")
 }
 
-initReferenceData()
-
-// module.exports = {
-//   initReferenceData
-// }
+module.exports = {
+  initReferenceData
+}
